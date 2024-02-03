@@ -1,0 +1,11 @@
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/controller/JogoSrv.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/dao/JogoDaoJpa.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/dao/InterfaceDao.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/Jogo.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/dao/DaoFactory.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/dao/ClienteDaoJpa.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/Emprestimo.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/Cliente.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/controller/ClienteSrv.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/dao/EmprestimoDaoJpa.java
+/home/davitostes/NetBeansProjects/trab-foly/src/main/java/model/dao/ConnFactory.java
