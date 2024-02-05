@@ -107,7 +107,7 @@ public class EmprestimoSrv extends HttpServlet {
             if(situacao != "Devolvido") {
                 botao_devolver = "<td><form action=EmprestimoSrv?acao=devolucao method='POST'>"
                     + "<input type='hidden' name='id' value="
-                    + emprestimo.getId() + "><button type='submit'>Finalizar</button>"
+                    + emprestimo.getId() + "><button class='botao_devolver' type='submit'>Finalizar</button>"
                     + "</form></td>"
                     + "</tr>";
             }

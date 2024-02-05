@@ -27,10 +27,10 @@ public class Emprestimo {
     private LocalDate dataDevolucao;
     private boolean devolvido;
     @ManyToOne()
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente_id", unique = false)
     private Cliente cliente;
     @ManyToOne()
-    @JoinColumn(name = "jogo_id")
+    @JoinColumn(name = "jogo_id", unique = false)
     private Jogo jogo;
     
     public Emprestimo() {

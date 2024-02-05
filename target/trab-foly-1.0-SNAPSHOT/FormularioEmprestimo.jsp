@@ -18,7 +18,23 @@
         <link rel="stylesheet" type="text/css" href="./styles/formulario.css">
     </head>
     <body>
+        <div class="tab_bar_container">
+            <h1>Locadora de jogos</h1>
+            <div class="buttonContainer">
+                <a href="FormularioJogo.jsp?acao=inclusao">Cadastrar jogo</a>
+                <a href="JogoSrv?acao=listagem">Listar jogos</a>
+            </div>
+            <div class="buttonContainer">
+                <a href="FormularioCliente.jsp?acao=inclusao">Cadastrar cliente</a>
+                <a href="ClienteSrv?acao=listagem">Listar clientes</a>                
+            </div>
+            <div class="buttonContainer">
+                <a href="FormularioEmprestimo.jsp?acao=inclusao">Fazer emprestimo</a>
+                <a href="EmprestimoSrv?acao=listagem">Listar emprestimos</a>                 
+            </div>
+        </div>
         <div class="container">
+            <h2>Fazer emprestimo</h2>
             <form action="EmprestimoSrv" method="POST">
                 <input type="hidden" name="acao" value="<%=acao %>" />
                 <div class="input_container">

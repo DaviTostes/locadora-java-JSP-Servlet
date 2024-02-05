@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="./styles/index.css">
     </head>
     <body>
-        <div class="container">
+        <div class="tab_bar_container">
             <h1>Locadora de jogos</h1>
             <div class="buttonContainer">
                 <a href="FormularioJogo.jsp?acao=inclusao">Cadastrar jogo</a>
@@ -33,9 +33,11 @@
                 <a href="ClienteSrv?acao=listagem">Listar clientes</a>                
             </div>
             <div class="buttonContainer">
-                <a href="FormularioEmprestimo.jsp?acao=inclusao">Criar emprestimo</a>
+                <a href="FormularioEmprestimo.jsp?acao=inclusao">Fazer emprestimo</a>
                 <a href="EmprestimoSrv?acao=listagem">Listar emprestimos</a>                 
             </div>
+        </div>
+        <div class="container">
         </div>
         <script>
             let mensagem = <%=mensagem%>; 
