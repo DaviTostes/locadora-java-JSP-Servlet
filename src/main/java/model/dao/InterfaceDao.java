@@ -19,7 +19,7 @@ public interface InterfaceDao<T> {
 
     public abstract void excluir(T entidade) throws Exception;
 
-    public abstract T pesquisarPorId(int id) throws Exception;
+    public abstract T pesquisarPorId(long id) throws Exception;
 
     public abstract List<T> listar() throws Exception;
     

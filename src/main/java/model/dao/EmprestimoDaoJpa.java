@@ -7,7 +7,9 @@ package model.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
+import model.Cliente;
 import model.Emprestimo;
+import model.Jogo;
 
 /**
  *
@@ -18,8 +20,12 @@ public class EmprestimoDaoJpa implements InterfaceDao<Emprestimo> {
     @Override
     public void incluir(Emprestimo entidade) throws Exception {
         EntityManager em = ConnFactory.getEntityManager();
-        try {
+        try {            
             em.getTransaction().begin();
+            Cliente cliente = em.merge(em.find(Cliente.class, entidade.getCliente().getId()));
+            Jogo jogo = em.merge(em.find(Jogo.class, entidade.getJogo().getId()));
+            entidade.setCliente(cliente);
+            entidade.setJogo(jogo);
             em.persist(entidade);
             em.getTransaction().commit();
         } finally {
@@ -55,7 +61,7 @@ public class EmprestimoDaoJpa implements InterfaceDao<Emprestimo> {
     }
 
     @Override
-    public Emprestimo pesquisarPorId(int id) throws Exception {
+    public Emprestimo pesquisarPorId(long id) throws Exception {
         Emprestimo c = null;
         EntityManager em = ConnFactory.getEntityManager();
         try {
@@ -76,7 +82,7 @@ public class EmprestimoDaoJpa implements InterfaceDao<Emprestimo> {
         EntityManager em = ConnFactory.getEntityManager();
         try {
             em.getTransaction().begin();
-            lista = em.createQuery("SELECT * FROM Emprestimo").getResultList();
+            lista = em.createQuery("FROM model.Emprestimo", Emprestimo.class).getResultList();
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -88,7 +94,7 @@ public class EmprestimoDaoJpa implements InterfaceDao<Emprestimo> {
     public List<Emprestimo> filtrarPorNome(String nome) throws Exception {
         EntityManager em = ConnFactory.getEntityManager();
 
-        Query query = em.createQuery("SELECT * FROM Emprestimo e INNER JOIN Cliente c 0N e.cliente_id = c.id WHERE c.nome = :nome");
+        Query query = em.createQuery("FROM Emprestimo e INNER JOIN Cliente c 0N e.cliente_id = c.id WHERE c.nome = :nome");
         query.setParameter("nome", nome);
         List<Emprestimo> resultado = query.getResultList();
         return resultado;

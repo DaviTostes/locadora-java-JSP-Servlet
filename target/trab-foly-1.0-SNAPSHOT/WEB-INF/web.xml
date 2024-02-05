@@ -8,6 +8,10 @@
         <servlet-name>ClienteSrv</servlet-name>
         <servlet-class>controller.ClienteSrv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmprestimoSrv</servlet-name>
+        <servlet-class>controller.EmprestimoSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>JogoSrv</servlet-name>
         <url-pattern>/JogoSrv</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ClienteSrv</servlet-name>
         <url-pattern>/ClienteSrv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmprestimoSrv</servlet-name>
+        <url-pattern>/EmprestimoSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

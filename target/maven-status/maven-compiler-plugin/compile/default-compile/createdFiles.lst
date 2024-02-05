@@ -1,11 +1,12 @@
 model/dao/EmprestimoDaoJpa.class
 controller/ClienteSrv.class
 model/Jogo.class
-model/Cliente.class
-model/dao/ClienteDaoJpa.class
-model/dao/JogoDaoJpa.class
-model/dao/ConnFactory.class
 model/dao/DaoFactory.class
 model/dao/InterfaceDao.class
 model/Emprestimo.class
+model/Cliente.class
+controller/EmprestimoSrv.class
+model/dao/ClienteDaoJpa.class
+model/dao/JogoDaoJpa.class
+model/dao/ConnFactory.class
 controller/JogoSrv.class

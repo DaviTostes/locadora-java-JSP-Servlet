@@ -4,13 +4,14 @@
  */
 package model;
 
+import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,15 +23,24 @@ public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id", unique = true)
+    private LocalDate dataEmprestimo;
+    private LocalDate dataDevolucao;
+    private boolean devolvido;
+    @ManyToOne()
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "jogo_id", unique = true)
+    @ManyToOne()
+    @JoinColumn(name = "jogo_id")
     private Jogo jogo;
+    
+    public Emprestimo() {
+    }
 
-    public Emprestimo(Cliente cliente) {
+    public Emprestimo(LocalDate dataEmprestimo, LocalDate dataDevolucao, Cliente cliente, Jogo jogo) {
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
         this.cliente = cliente;
+        this.jogo = jogo;
     }
 
     public long getId() {
@@ -55,5 +65,29 @@ public class Emprestimo {
 
     public void setJogo(Jogo jogo) {
         this.jogo = jogo;
+    }
+
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public LocalDate getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(LocalDate dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public boolean isDevolvido() {
+        return devolvido;
+    }
+
+    public void setDevolvido(boolean devolvido) {
+        this.devolvido = devolvido;
     }
 }

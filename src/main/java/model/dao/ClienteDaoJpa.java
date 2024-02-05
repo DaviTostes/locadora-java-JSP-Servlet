@@ -55,7 +55,7 @@ public class ClienteDaoJpa implements InterfaceDao<Cliente> {
     }
 
     @Override
-    public Cliente pesquisarPorId(int id) throws Exception {
+    public Cliente pesquisarPorId(long id) throws Exception {
         Cliente c = null;
         EntityManager em = ConnFactory.getEntityManager();
         try {

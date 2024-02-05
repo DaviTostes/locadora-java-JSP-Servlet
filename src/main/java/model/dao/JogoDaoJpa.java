@@ -55,7 +55,7 @@ public class JogoDaoJpa implements InterfaceDao<Jogo> {
     }
 
     @Override
-    public Jogo pesquisarPorId(int id) throws Exception {
+    public Jogo pesquisarPorId(long id) throws Exception {
         Jogo c = null;
         EntityManager em = ConnFactory.getEntityManager();
         try {

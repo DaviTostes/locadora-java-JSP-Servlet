@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listagem de jogos</title>
+        <link rel="stylesheet" type="text/css" href="./styles/lista.css">
     </head>
 
     <%
@@ -17,12 +18,10 @@
     %>
 
     <body>
-        <br>
-        <br>
-    <center>
-        <table border="0">
+        <table>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Preço</th>
@@ -34,6 +33,5 @@
                 <%=listaHTML%>
             </tbody>
         </table>
-    </center>
 </body>
 </html>

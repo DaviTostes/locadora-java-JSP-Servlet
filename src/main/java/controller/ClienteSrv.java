@@ -31,30 +31,50 @@ public class ClienteSrv extends HttpServlet {
             
             String acao = request.getParameter("acao");
             
+            String id = request.getParameter("id");
+            String nome = request.getParameter("nome");
+            String email = request.getParameter("email");
+            String telefone = request.getParameter("telefone");
+            
             InterfaceDao dao = DaoFactory.novoClienteDao();
             RequestDispatcher rd;
             
             switch(acao) {
                 case "inclusao":
-                    String nome = request.getParameter("nome");
-                    String email = request.getParameter("email");
-                    String telefone = request.getParameter("telefone");
-                    
                     dao.incluir(new Cliente(nome, email, telefone));
                     rd = request.getRequestDispatcher("index.jsp");
                     rd.forward(request, response);
                     break;
                 case "pre-edicao":
-                    
+                    Cliente cliente_pre_edicao = (Cliente) dao.pesquisarPorId(Integer.parseInt(id));
+                    rd = request.getRequestDispatcher("FormularioCliente.jsp?acao=edicao"
+                        + "&id="+cliente_pre_edicao.getId()
+                        + "&nome="+cliente_pre_edicao.getNome()
+                        + "&email="+cliente_pre_edicao.getEmail()
+                        + "&telefone="+cliente_pre_edicao.getTelefone());
+                    rd.forward(request, response);
                     break;
                 case "edicao":
-                    
+                    Cliente cliente_edicao = new Cliente(nome, email, telefone);
+                    cliente_edicao.setId(Integer.parseInt(id));
+                    dao.editar(cliente_edicao);
+                    rd = request.getRequestDispatcher("ClienteSrv?acao=listagem");
+                    rd.forward(request, response);
                     break;
                 case "exclusao":
-                    
+                    Cliente cliente_exclusao = new Cliente(nome, email, telefone);
+                    cliente_exclusao.setId(Integer.parseInt(id));
+                    dao.excluir(cliente_exclusao);
+                    rd = request.getRequestDispatcher("ClienteSrv?acao=listagem");
+                    rd.forward(request, response);
                     break;
                 case "listagem":
-                    rd = request.getRequestDispatcher("ListagemCliente.jsp?lista="+listagem());
+                    String listagem = listagem();
+                    if(listagem == "") {
+                        rd = request.getRequestDispatcher("index.jsp?mensagem='Nenhum cliente encontrado'");
+                        rd.forward(request, response);
+                    }
+                    rd = request.getRequestDispatcher("ListagemCliente.jsp?lista="+listagem);
                     rd.forward(request, response);
                     break;
             }
@@ -72,13 +92,25 @@ public class ClienteSrv extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(JogoSrv.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if(lista.size() == 0) {
+            return "";
+        }
         String listaHTML = "";
         for(Cliente cliente : lista) {
             listaHTML = listaHTML
                     + "<tr>"
+                    + "<td>" + cliente.getId() + "</td>"
                     + "<td>" + cliente.getNome() + "</td>"
                     + "<td>" + cliente.getEmail() + "</td>"
                     + "<td>" + cliente.getTelefone() + "</td>"
+                    + "<td><form action=ClienteSrv?acao=pre-edicao method='POST'>"
+                    + "<input type='hidden' name='id' value="
+                    + cliente.getId() + "><button type='submit'><img src=./assets/editar.png></button>"
+                    + "</form></td>"
+                    + "<td><form action=ClienteSrv?acao=exclusao method='POST'>"
+                    + "<input type='hidden' name='id' value="
+                    + cliente.getId() + "><button type='submit'><img src=./assets/excluir.png></button></td>"
+                    + "</form>"
                     + "</tr>";
         }
         

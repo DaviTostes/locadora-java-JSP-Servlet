@@ -4,10 +4,13 @@
  */
 package model;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,6 +25,8 @@ public class Cliente {
     private String nome;
     private String email;
     private String Telefone;
+    @OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
+    private List<Emprestimo> emprestimos;
 
     public Cliente() {
     }
@@ -62,5 +67,13 @@ public class Cliente {
 
     public void setTelefone(String Telefone) {
         this.Telefone = Telefone;
+    }
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
     }
 }

@@ -10,19 +10,36 @@
 <%@page import="model.dao.InterfaceDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>    
+<html>
+
+    <%
+        String mensagem = request.getParameter("mensagem");
+    %>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Página Inicial</title>
+        <link rel="stylesheet" type="text/css" href="./styles/index.css">
     </head>
     <body>
-        <div>
-            <center>
-                <button><a href="FormularioJogo.jsp?acao=inclusao">Cadastrar jogo</a></button>
-                <button><a href="FormularioCliente.jsp?acao=inclusao">Cadastrar cliente</a></button>
-                <button><a href="JogoSrv?acao=listagem">Listar jogos</a></button>
-                <button><a href="ClienteSrv?acao=listagem">Listar clientes</a></button>
-            </center>
+        <div class="container">
+            <h1>Locadora de jogos</h1>
+            <div class="buttonContainer">
+                <a href="FormularioJogo.jsp?acao=inclusao">Cadastrar jogo</a>
+                <a href="JogoSrv?acao=listagem">Listar jogos</a>
+            </div>
+            <div class="buttonContainer">
+                <a href="FormularioCliente.jsp?acao=inclusao">Cadastrar cliente</a>
+                <a href="ClienteSrv?acao=listagem">Listar clientes</a>                
+            </div>
+            <div class="buttonContainer">
+                <a href="FormularioEmprestimo.jsp?acao=inclusao">Criar emprestimo</a>
+                <a href="EmprestimoSrv?acao=listagem">Listar emprestimos</a>                 
+            </div>
         </div>
+        <script>
+            let mensagem = <%=mensagem%>; 
+            if(mensagem) alert(mensagem);
+        </script>
     </body>
 </html>

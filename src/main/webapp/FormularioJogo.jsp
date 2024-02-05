@@ -12,29 +12,45 @@
         
         String acao = request.getParameter("acao");
         
+        String id = request.getParameter("id");
+        String nome = request.getParameter("nome");
+        String descricao = request.getParameter("descricao");
+        String preco = request.getParameter("preco");
+        System.out.println(id);
+        
+        if (id == null) {
+            nome = "";
+            descricao = "";
+            preco = "";
+        }
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulario jogo</title>
+        <link rel="stylesheet" type="text/css" href="./styles/formulario.css">
     </head>
     <body>
-        <div>
-            <center>
-                <form action="JogoSrv" method="POST">
-                    <input type="hidden" name="acao" value="<%=acao %>" />
-                    <label>
-                        Nome: <input type="text" id="nome" name="nome" value="" />
-                    </label>
-                    <label>
-                        Descrição: <textarea id="descricao" name="descricao" rows="5" cols="33" value=""></textarea>
-                    </label>
-                    <label>
-                        Preço: <input type="text" id="preco" name="preco" value="" />
-                    </label>
+        <div class="container">
+            <form action="JogoSrv" method="POST">
+                <input type="hidden" name="acao" value="<%=acao %>" />
+                <input type="hidden" name="id" value="<%=id %>" />
+                <div class="input_container">
+                    <label>Nome:</label>
+                    <input type="text" id="nome" name="nome" value="<%=nome%>" />
+                </div>
+                <div class="input_container">
+                    <label>Descrição:</label>
+                    <textarea id="descricao" name="descricao"><%=descricao%></textarea>
+                </div>
+                <div class="input_container">
+                    <label>Preço:</label>
+                    <input type="text" id="preco" name="preco" value="<%=preco%>" />
+                </div>
+                <div id="button_container">
                     <button type="submit">Enviar</button>
                     <button type="reset">Limpar</button>
-                </form>
-            </center>
+                </div>
+            </form>
         </div>
     </body>
 </html>

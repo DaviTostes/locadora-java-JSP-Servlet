@@ -4,10 +4,13 @@
  */
 package model;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -21,6 +24,8 @@ public class Jogo {
     private String nome;
     private String descricao;
     private double preco;
+    @OneToMany(mappedBy="jogo", cascade = CascadeType.ALL)
+    private List<Emprestimo> emprestimos;
 
     public Jogo() {
     }
@@ -62,6 +67,12 @@ public class Jogo {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-    
-    
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
+    }
 }
