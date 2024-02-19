@@ -62,7 +62,7 @@ public class EmprestimoSrv extends HttpServlet {
                     LocalDate data_devolucao = data_atual.plusDays(7);
                     
                     dao.incluir(new Emprestimo(data_atual, data_devolucao, cliente_inclusao, jogo_inclusao));
-                    rd = request.getRequestDispatcher("index.jsp");
+                    rd = request.getRequestDispatcher("index.jsp?mensagem='Sucesso ao realizar emprestimo'");
                     rd.forward(request, response);
                     break;
                 case "devolucao":

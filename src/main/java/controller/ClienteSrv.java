@@ -42,7 +42,7 @@ public class ClienteSrv extends HttpServlet {
             switch(acao) {
                 case "inclusao":
                     dao.incluir(new Cliente(nome, email, telefone));
-                    rd = request.getRequestDispatcher("index.jsp");
+                    rd = request.getRequestDispatcher("index.jsp?mensagem='Sucesso ao cadastrar cliente'");
                     rd.forward(request, response);
                     break;
                 case "pre-edicao":

@@ -41,7 +41,7 @@ public class JogoSrv extends HttpServlet {
             switch(acao) {
                 case "inclusao":
                     dao.incluir(new Jogo(nome, descricao, Double.parseDouble(preco)));
-                    rd = request.getRequestDispatcher("index.jsp");
+                    rd = request.getRequestDispatcher("index.jsp?mensagem='Sucesso ao cadastrar jogo'");
                     rd.forward(request, response);
                     break;
                 case "pre-edicao":
@@ -97,7 +97,7 @@ public class JogoSrv extends HttpServlet {
         for(Jogo jogo : lista) {
             listaHTML = listaHTML
                     + "<tr>"
-                    + "<td>" + jogo.getId() + "</td>"
+                    + "<td>" + jogo.getId() + "aaaaaaa" + "</td>"
                     + "<td>" + jogo.getNome() + "</td>"
                     + "<td>" + jogo.getDescricao() + "</td>"
                     + "<td>" + jogo.getPreco() + "</td>"
