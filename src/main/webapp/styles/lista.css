@@ -6,6 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 4 Feb 2024, 20:41:36
     Author     : davitostes
 */
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
 * {
     margin: 0;
@@ -20,19 +21,19 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #FFF;
+    background-image: url('../assets/site_background.jpg');
     display: flex;
-    padding: 10px
 }
 
-
 .tab_bar_container {
-    height: 80%;
-    background-color: #14870c;
-    border-radius: 10px;
-    padding: 10px;
+    font-family: "Anta", sans-serif;
+    height: 100%;
+    width: 20%;
+    backdrop-filter: blur(10px);
+    border-radius: 0px 10px 10px 0px;
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
 }
 
 .buttonContainer {
@@ -58,11 +59,12 @@ a {
 }
 
 a:hover {
-    background-color: #0d730d;
+    background-color: rgba(80, 80, 80, 0.5);
 }
 
 h2 {
-    color: #000;
+    font-family: "Anta", sans-serif;
+    color: #fff;
     font-size: 38px;
 }
 
@@ -81,12 +83,13 @@ table {
 }
 
 thead {
+    font-family: "Anta", sans-serif;
     font-size: 20px;
-    background-color: #14870c;
+    background-color: rgba(80, 80, 80, 0.9);
 }
 
 tbody {
-    background-color: #fff;
+    backdrop-filter: blur(10px);
 }
 
 th {
@@ -94,7 +97,8 @@ th {
 }
 
 td {
-    color: #000;
+    font-family: "Anta", sans-serif;
+    color: #ffffff;
     padding: 10px;
     border-bottom: 1px solid black;
     padding: 20px
@@ -116,12 +120,12 @@ button {
 }
 
 .botao_devolver {
-    background-color: #14870c;
+    background-color: rgba(80, 80, 80, 0.5);
     color: #fff;
     padding: 10px;
     border-radius: 5px
 }
 
 .botao_devolver:hover {
-    background-color: #0d730d;
+    filter: opacity(0.6)
 }

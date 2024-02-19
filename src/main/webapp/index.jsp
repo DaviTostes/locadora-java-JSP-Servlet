@@ -20,10 +20,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Página Inicial</title>
         <link rel="stylesheet" type="text/css" href="./styles/index.css">
+        <link rel="icon" type="image/x-icon" href="./assets/icon.png">
     </head>
     <body>
         <div class="tab_bar_container">
-            <h1>Locadora de jogos</h1>
+            <h1 href="index.jsp">Locadora de jogos</h1>
             <div class="buttonContainer">
                 <a href="FormularioJogo.jsp?acao=inclusao">Cadastrar jogo</a>
                 <a href="JogoSrv?acao=listagem">Listar jogos</a>
@@ -37,11 +38,15 @@
                 <a href="EmprestimoSrv?acao=listagem">Listar emprestimos</a>                 
             </div>
         </div>
-        <div class="container">
+
+        <div class="conteudo">
+            <h1>Seja Bem-Vindo à Locadora Game-Over!</h1>
         </div>
+
         <script>
             let mensagem = <%=mensagem%>; 
             if(mensagem) alert(mensagem);
         </script>
+
     </body>
 </html>

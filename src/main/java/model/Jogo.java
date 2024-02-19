@@ -26,7 +26,7 @@ public class Jogo {
     private double preco;
     @OneToMany(mappedBy="jogo", cascade = CascadeType.ALL)
     private List<Emprestimo> emprestimos;
-
+    
     public Jogo() {
     }
 
@@ -67,7 +67,7 @@ public class Jogo {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-
+    
     public List<Emprestimo> getEmprestimos() {
         return emprestimos;
     }

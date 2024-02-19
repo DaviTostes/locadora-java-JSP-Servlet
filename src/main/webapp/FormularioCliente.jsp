@@ -28,10 +28,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulario cliente</title>
         <link rel="stylesheet" type="text/css" href="./styles/formulario.css">
+        <link rel="icon" type="image/x-icon" href="./assets/icon.png">
     </head>
     <body>
         <div class="tab_bar_container">
             <h1>Locadora de jogos</h1>
+            <div class="buttonContainer">
+                <a href="index.jsp">Inicio</a>
+            </div>
             <div class="buttonContainer">
                 <a href="FormularioJogo.jsp?acao=inclusao">Cadastrar jogo</a>
                 <a href="JogoSrv?acao=listagem">Listar jogos</a>

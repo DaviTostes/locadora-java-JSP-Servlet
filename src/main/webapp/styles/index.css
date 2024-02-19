@@ -6,6 +6,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 4 Feb 2024, 20:26:08
     Author     : davitostes
 */
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -19,23 +21,16 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #FFF;
+    background-image: url('../assets/site_background.jpg');
     display: flex;
-    padding: 10px
 }
 
 .tab_bar_container {
-    height: 80%;
-    background-color: #14870c;
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center
-}
-
-.container {
-    width: 70%;
+    font-family: "Anta", sans-serif;
     height: 100%;
+    width: 20%;
+    backdrop-filter: blur(10px);
+    border-radius: 0px 10px 10px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,6 +43,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.conteudo{
+    font-family: "Anta", sans-serif;
+    flex: 1; /* Ocupa todo o espaço restante */
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 a {
@@ -64,6 +67,6 @@ a {
 }
 
 a:hover {
-    background-color: #0d730d;
+    background-color: rgba(80, 80, 80, 0.5);
 }
 

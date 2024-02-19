@@ -48,14 +48,14 @@ public class EmprestimoSrv extends HttpServlet {
                     Cliente cliente_inclusao = (Cliente) dao_cliente.pesquisarPorId(cliente_id);
                     Jogo jogo_inclusao = (Jogo) dao_jogo.pesquisarPorId(jogo_id);
                     
-                    if(cliente_inclusao == null) {
-                        rd = request.getRequestDispatcher("index.jsp?mensagem='Cliente não encotrado'");
-                    rd.forward(request, response);
-                    }
-                    
                     if(jogo_inclusao == null) {
                         rd = request.getRequestDispatcher("index.jsp?mensagem='Jogo não encotrado'");
                     rd.forward(request, response);
+                    }
+                    
+                    if(cliente_inclusao == null) {
+                        rd = request.getRequestDispatcher("index.jsp?mensagem='Cliente não encotrado'");
+                        rd.forward(request, response);
                     }
                     
                     LocalDate data_atual = LocalDate.now();
