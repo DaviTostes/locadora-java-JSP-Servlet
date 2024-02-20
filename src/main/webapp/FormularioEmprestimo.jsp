@@ -4,14 +4,33 @@
     Author     : davitostes
 --%>
 
+<%@page import="model.Jogo"%>
+<%@page import="model.Cliente"%>
+<%@page import="java.util.List"%>
+<%@page import="model.dao.DaoFactory"%>
+<%@page import="model.dao.InterfaceDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <%
-        
         String acao = request.getParameter("acao");
         
-    %>
+        InterfaceDao dao_cliente = DaoFactory.novoClienteDao();
+        InterfaceDao dao_jogo = DaoFactory.novoJogoDao();
+        
+        List<Cliente> clientes = dao_cliente.listar();
+        List<Jogo> jogos = dao_jogo.listar();
+        
+        String jogos_html = "";
+        for(Jogo jogo : jogos) {
+            jogos_html += "<option value="+jogo.getId()+">"+jogo.getNome()+"</option>";
+        }
+        
+        String clientes_html = "";
+        for(Cliente cliente : clientes) {
+            clientes_html += "<option value="+cliente.getId()+">"+cliente.getNome()+"</option>";
+        }
+     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulario de emprestimos</title>
@@ -42,13 +61,18 @@
             <form action="EmprestimoSrv" method="POST">
                 <input type="hidden" name="acao" value="<%=acao %>" />
                 <div class="input_container">
-                    <label>Id do cliente:</label>
-                    <input type="number" id="cliente_id" name="cliente_id" min="0" />
+                    <label>Cliente:</label>
+                    <select name="cliente_id">
+                        <%=clientes_html%>
+                    </select>
                 </div>
                 <div class="input_container">
-                    <label>Id do jogo:</label>
-                    <input type="number" id="jogo_id" name="jogo_id" min="0" />
+                    <label>Jogo:</label>
+                    <select name="jogo_id">
+                        <%=jogos_html%>
+                    </select>
                 </div>
+                
                 <div id="button_container">
                     <button type="submit">Enviar</button>
                     <button type="reset">Limpar</button>

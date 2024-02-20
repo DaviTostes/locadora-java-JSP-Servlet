@@ -97,7 +97,7 @@ public class JogoSrv extends HttpServlet {
         for(Jogo jogo : lista) {
             listaHTML = listaHTML
                     + "<tr>"
-                    + "<td>" + jogo.getId() + "aaaaaaa" + "</td>"
+                    + "<td>" + jogo.getId() + "</td>"
                     + "<td>" + jogo.getNome() + "</td>"
                     + "<td>" + jogo.getDescricao() + "</td>"
                     + "<td>" + jogo.getPreco() + "</td>"

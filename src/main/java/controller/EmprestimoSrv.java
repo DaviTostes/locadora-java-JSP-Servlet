@@ -38,7 +38,7 @@ public class EmprestimoSrv extends HttpServlet {
             RequestDispatcher rd;
             
             switch(acao) {
-                case "inclusao":                   
+                case "inclusao":
                     long cliente_id = Long.parseLong(request.getParameter("cliente_id"));
                     long jogo_id = Long.parseLong(request.getParameter("jogo_id"));
                     
@@ -51,6 +51,13 @@ public class EmprestimoSrv extends HttpServlet {
                     if(jogo_inclusao == null) {
                         rd = request.getRequestDispatcher("index.jsp?mensagem='Jogo não encotrado'");
                     rd.forward(request, response);
+                    }
+                    
+                    for(Emprestimo emp : jogo_inclusao.getEmprestimos()) {
+                        if(emp.isDevolvido() == false) {
+                            rd = request.getRequestDispatcher("index.jsp?mensagem='Jogo em emprestimo'");
+                            rd.forward(request, response);
+                        }
                     }
                     
                     if(cliente_inclusao == null) {

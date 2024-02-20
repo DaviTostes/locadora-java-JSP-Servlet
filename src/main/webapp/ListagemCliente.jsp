@@ -7,17 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%
+        String listaHTML = request.getParameter("lista");
+    %>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listagem de clientes</title>
         <link rel="stylesheet" type="text/css" href="./styles/lista.css">
         <link rel="icon" type="image/x-icon" href="./assets/icon.png">
     </head>
-
-    <%
-        String listaHTML = request.getParameter("lista");
-    %>
-
     <body>
         <div class="tab_bar_container">
             <h1>Locadora de jogos</h1>

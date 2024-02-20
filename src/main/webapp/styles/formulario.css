@@ -102,11 +102,15 @@ form {
     height: 100%
 }
 
-input, textarea {
+input, textarea, select, option {
     border: none;
     border-radius: 5px;
     padding: 6px;
     color: black
+}
+
+select {
+    margin-top: 10px
 }
 
 textarea {
